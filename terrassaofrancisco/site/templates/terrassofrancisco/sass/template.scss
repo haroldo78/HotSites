@@ -1,0 +1,578 @@
+// normalize
+@import 'normalize.scss';
+@import 'grid.scss';
+
+// Redefinindo itens padrão do grid. Alterando margin para zero
+$columns: 12;
+$column-width: 100;
+$gutter-width: 0;
+
+
+// Com essa definição o grid se comporta com %. Para grid fixo remover esse item.
+$total-width: 100%;
+
+// Cores
+$branco: #FFFFFF;
+$marron: #432D1E;
+$marron-escuro:#412C1C;
+$cinza: #575859;
+$verde-claro:#A9C025;
+
+
+
+/* FRONTEND SASS */
+
+*{
+	 padding: 0; list-style: none; text-decoration: none; font-family: 'Open Sans', sans-serif; line-height: 150%;
+}
+
+html {
+  overflow-y: scroll;
+  font-size: 66.5%;
+}
+body {
+	background-color:$branco;
+	background-position:fixed;
+}
+
+
+/* Mixins */
+@mixin font-size($sizeValue: 16) {
+  font-size: ($sizeValue) + px;
+  font-size: $sizeValue/10 + rem;
+}
+
+
+/* LAYOUT */
+p{
+	@include font-size(17);
+	font-weight: 300;
+	color:$marron;
+}
+input, textarea{
+	width: 444px;
+    padding: 10px;
+    color: #8A9638;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    z-index: 1;
+    @include font-size(14);
+}
+label{
+	position: absolute;
+    margin: 29px 48px;
+    color: $branco;
+    font-weight: 300;
+    @include font-size(32);
+}
+textarea {
+  width: 444px;
+  height: 118px;
+  margin-bottom: 50px;
+}
+
+%center{
+	width:100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.center{
+	@extend %center;
+}
+.topo{
+	width:100%;
+	height: 85px;
+	z-index: 11;
+	position: fixed;
+	min-width: 1200px;
+	.logo{
+		@include column(4, 12);
+		height: 104px;
+		margin: -6px 0%;
+		background: url(../images/logo.png) no-repeat;
+	}
+	ul.nav.menumenu-principal{
+		@include column(8, 12);
+		margin: 2% 0%;
+		li{
+		    padding: 10px;
+			float: left;
+		    text-transform: uppercase;
+		    a{
+		    	@include font-size(14);
+		    	color: $branco;
+		    	font-weight: bold;
+
+		    	&:hover, &:active {
+		    		color: $marron;
+		    	}
+		    }
+		    span.separator {
+			    font-size: 1.4rem;
+			    color: #fff;
+			    font-weight: bold;
+			    cursor: pointer;
+
+			    &:hover, &:active {
+		    		color: $marron;
+		    	}
+			}
+		}
+		li.item-101 {
+		    display: none;
+		}
+	}
+}
+.go-up.default {
+	  	display: none;
+	}
+header.topo.row {
+  background-color: #8A9638;
+  min-width: 1200px;
+  	.logo.row {
+  		@include column(3, 12);
+  		background: url(../images/logo-row.png) no-repeat;
+  		margin: -11px 0%;
+    }
+	nav.menu.row {
+		position: relative;
+	  	ul.nav.menumenu-principal{
+			li{
+				a{
+					color:$marron;
+					&:hover, &:active{
+						color: $branco;
+					}
+				}
+				 span.separator {
+				 	color:$marron;
+				 	&:hover, &:active{
+						color: $branco;
+					}
+				 }
+			}
+	  	}
+	  	.parcelas{
+		    width: 358px;
+		    height: 152px;
+		    background: url(../images/parcelas.png) no-repeat;
+		    margin-left: 63%;
+	  	}
+	}
+}
+section.banners {
+  	height: 800px;
+  	position: relative;
+  	min-width: 1200px;
+  	.custom.banner {
+  		background-size: cover;
+  		position: fixed;
+  		background-position: center;
+  		width: 100%;
+  		z-index: -1;
+  		height: 100%;
+	}
+}
+.go-up.row {
+    position: fixed;
+    display: block;
+    right: 42px;
+    height: 50px;
+    width: 50px;
+    background: url(../images/seta-subir.png) no-repeat;
+    top: 91%;
+    z-index: 2;
+   	a {
+	    padding: 14px 32px;
+	    position: absolute;
+	    text-indent: -99999999px;
+	}
+}
+
+section.investimento {
+  	width: 100%;
+  	background:#FDE2C7;
+  	min-width: 1200px;
+  	.blog {
+  		padding-top: 50px;
+  		.row-0{
+  			width: 100%;
+  			height: 700px;
+  			margin-top: 73px;
+  			.center{
+  				background: url(../images/mercado.png) no-repeat #FDE2C7;
+  				height: 72px;
+  				padding-top: 80px;
+  				h2{
+			  		@include font-size(32);
+			  		color: $marron;
+			  		font-weight: 300;
+  					margin-top: 60px;
+  					width: 40%;
+  					float: left;
+  					margin-right: 5%;
+  					height: 400px;
+			  	}
+			  	p{
+			  		width: 55%;
+			  		float: left;
+			  		margin-top: 70px;
+			  	}
+  			}
+  		}
+  		.row-1{
+  			background:$marron-escuro;
+  			height: 1150px;
+  			min-width: 1200px;
+  			.center{
+	  			img{
+	  				width: 100%;
+	  				margin-top: 130px;
+	  			}
+	  			.fuertecontainer {
+					position: relative;
+					background: none repeat scroll 0 0 #422D1E !important;
+					#progress-back{
+						display: none !important;
+					}
+					#oziobottombar {
+					  display: none !important;
+					}
+
+				}
+				#thumb-tray{
+					background-color: #402C1B!important;
+				    background: none;
+				    box-shadow: none;
+				    ul#thumb-list li{
+				    	background-color: #402C1B!important;
+				    	img {
+						   margin-top: 30px;
+						}
+				    }
+				}
+  			}
+  		}
+  		.row-2{
+  		height: 1060px;
+  		min-width: 1200px;
+  			.center{
+  				.item.column-1 {
+  					h2{
+				  		width: 300px;
+					    float: left;
+	  					@include font-size(32);
+	  					color: $marron;
+				  		font-weight: 300;
+				  		margin-top: 130px;
+					    border-right: 1px solid #B36C28;
+					    height: 81px;
+						margin-bottom: 50px;
+	  				}
+				 	.pull-left.item-image {
+					    position: absolute;
+					    img {
+						  top: 336px;
+						    position: absolute;
+						}
+					}
+					div#comocomprar {
+					 	height: 114px;
+					}
+				}
+  			}
+  			p{
+				color: #000;
+				font-size: 20px;
+			}
+			p:nth-child(2){
+				width: 310px;
+				float: left;
+				font-weight: bold;
+				padding-left: 60px;
+				margin-top: 130px;
+				span{
+			    	@include font-size(30);
+					font-weight: 300;
+					color:#B26C27;
+			    }
+			}
+			#zoom{
+			    width: 1200px;
+				img {
+				    width: 100%;
+				    height: 676px;
+				}
+			}
+			p:nth-child(3){
+  				margin-top: 111px;
+  				span{
+  					@include font-size(37);
+  					color: $marron;
+  					font-weight: bold;
+  				}
+  			}
+  			p:nth-child(5){
+  				width: 352px;
+    			float: left;
+  				color: #B26C27;
+			    padding: 0px;
+			    margin-top: 18px;
+			    font-weight: 300;
+			    @include font-size(21);
+			    border-right: 1px solid #B36C28;
+
+  			}
+  			p:nth-child(6){
+			    width: 431px;
+			    color: #B26C27;
+			    border-right:none;
+			    padding-left: 81px;
+			    float: left;
+    			margin-top: 18px;
+  			}
+  		}
+  		.row-3{
+  			background: #EED4BA;
+  			height: 775px;
+  			min-width: 1200px;
+  			.center{
+  				h2{
+  					@include font-size(32);
+  					color: $marron;
+  					font-weight: 300;
+  					width: 400px;
+  					position: relative;
+    				top: 180px;
+    				padding-bottom: 190px;
+  				}
+  				.pull-left.item-image {
+				    margin-left: 377px;
+				    position: absolute;
+				    img {
+					   top: 180px;
+					    position: absolute;
+					}
+				}
+				p{
+					width: 350px;
+					color: #B26C27;
+					span {
+					    font-weight: bold;
+					}
+				}
+				p:nth-child(2){
+					//margin-top: 150px;
+					//position: absolute;
+				}
+  			}
+  		}
+  	}
+}
+a.anchor{
+	float: left;
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+#mask {
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:989;
+  background-color:#000;
+  display:none;
+  width: 100%;
+  height: 100%;
+}
+  
+#contato {
+  position:fixed;
+  //left: 33%;
+  top: 0%;
+  display:none;
+ z-index: 2222;
+}
+a.close.contato {
+	position: absolute;
+   top: 4%;
+   width: 552px;
+   text-align: right;
+}
+a.close{
+	display: block;
+	color: $branco;
+	@include font-size(14);
+}
+
+#contato{
+	padding: 2% 82% 20% 35%;
+	  background: url(../images/backgroud-formulario.png);
+	  min-width: 1200px;
+	.moduletable {
+		form#chronoform-contato {
+		    width: 555px;
+		    background: url(../images/logo-es-imoveis-form.png) no-repeat #8A9638;
+		    background-position: 14% 97%;
+		    margin-top: 34px;
+		    div#fin-fld1 {
+			    width: 241px;
+				@include font-size(30);
+			    color: #533920;
+			    margin-left: 239px;
+			    padding: 30px;
+			    font-weight: 300;
+			}
+		    input, textarea {
+				margin-left: 46px;
+			}
+		     input#enviar {
+			    width: 166px;
+		        @include font-size(14);
+		        color:#8A9638;
+		        background-color: #4A321E;
+		        margin-left: 60%;
+		        border: none;
+		        margin-bottom: 30px;
+
+		        &:hover{
+		        	color:$branco;
+		        }
+			}
+			.gtooltip.gvalidation-error-tip{
+				background-color:#4A321E;
+				border:1px solid #4A321E;
+			}
+			.gvalidation-error-tip .gtooltip-arrow, .gvalidation-error-tip .gtooltip-arrow-border{
+				border-color: #4A321E transparent transparent transparent;
+			}
+		}
+		p.chrono_credits {
+			display: none;
+		}
+		.gbs3 p {
+		  color: $branco;
+		  width: 510px;
+		  padding-top: 20px;
+		}
+	}
+}			
+
+footer.rodape {
+	@include column(12);
+    background-color: #fde2c7;
+    min-width: 1200px;
+    .logo-rodape {
+		@include column(4, 12);
+	}
+	.es-imoveis {
+		@include column(5, 12);
+		position: relative;
+		img{
+			position: absolute;
+			top: 48px;
+		}
+		p{
+    		margin-top: 64px;
+    		font-weight: bold;
+    		a{
+    			color:#B26C27;
+	    		span{
+	    			font-weight: 300;
+	    		}
+    		}
+		}
+		p:nth-child(2){
+				margin-left: 100px;
+		}
+	}
+	.vendas {
+		@include column(3, 12);
+		margin: 48px 0%;
+		p{
+			font-weight: bold;
+			span {
+			    font-size: 30px;
+			    font-weight: 300;
+			    color: #B26C27;
+			}
+		}
+	}
+}
+
+   ::-webkit-input-placeholder { /* WebKit browsers */
+		color: #8A9638;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: #8A9638;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color: #8A9638;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+		color: #8A9638;
+	}
+
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max--moz-device-pixel-ratio: 2) {
+	
+}
+/* Landscape phones and down */
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 1200px) {
+	section.banners {
+  	  // height: 1500px;
+    }
+	section.investimento{
+		.blog{
+			.row-0{
+				.center{
+					h2 {
+						margin-left: 20px;
+						width: 36%;
+					}
+				}
+			} 
+			 .row-2 {
+			 	.center{
+			 		.item.column-1{
+			 			 h2{
+							margin-left: 20px;
+						}
+		 			}
+		 		} 
+		 		p:nth-child(5){
+		 			margin-left: 20px;
+		 		}
+		 	}
+		 	.row-3{
+		 		.center{
+		 			h2 {
+						margin-left: 20px;
+		 			}
+		 			p{
+		 				margin-left: 20px;
+		 			}
+		 		} 
+		 	} 
+		}
+	} 
+}
+@media (max-width: 1280px) {
+
+}
+
+@media (max-width: 590px) {
+	
+  	
+}
+
+/* Portrait tablet to landscape and desktop */
+
+@media(max-width: 1370px){
+	
+	
+}
