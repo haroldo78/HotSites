@@ -1,0 +1,133 @@
+// normalize
+@import 'normalize.scss';
+@import 'grid.scss';
+
+// Redefinindo itens padrão do grid. Alterando margin para zero
+$columns: 12;
+$column-width: 100;
+$gutter-width: 0;
+
+
+// Com essa definição o grid se comporta com %. Para grid fixo remover esse item.
+$total-width: 100%;
+
+// Cores
+$branco: #FFFFFF;
+$vermelho: #EE3540;
+
+
+
+/* FRONTEND SASS */
+*{font-family: 'Varela Round', sans-serif;  }
+*{margin:0; padding:0;}
+
+html {
+  overflow-y: scroll;
+  font-size: 66.5%;
+}
+body {
+	margin: 0 auto;
+}
+
+
+
+/* Mixins */
+@mixin font-size($sizeValue: 16) {
+  font-size: ($sizeValue) + px;
+  font-size: $sizeValue/10 + rem;
+}
+
+
+/* LAYOUT */
+body.body {
+  
+  img{
+  // width: 100%;
+  }
+}
+.bg-landpage{
+ position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+ background: url("../img/bg-plg-landing-page-natal.jpg") no-repeat top center;
+ background-size: cover;
+}
+
+
+.conteudo{
+  width: 100%;
+  padding-top: 16%;
+  margin-bottom: 30px;
+ 
+  .anucio{
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 30px;
+   // height: 446px;
+    background:#fff;
+    margin: 0 auto;
+    border-radius: 14px;
+    box-shadow: 6px 8px 83px #000;
+    -moz-box-shadow: 6px 8px 83px #000;
+    .logo{
+      width: 100%;
+      height: 211px;
+      background: url("../img/logo.png")no-repeat 50%;
+    }
+    .texto{
+      width: 90%;
+      margin: 0 auto;
+      span {
+          font-size: 25px;
+          text-align: center;
+          width: 100%;
+          display: block;
+          color: #9f5c39;
+      }
+      p{
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+        color: #646464;
+      }
+      a{
+        display:block; 
+        background:#F16E20; 
+        color:#fff; 
+        text-decoration: none; 
+        padding: 13px; 
+        width: 204px; 
+        font-family: verdana; 
+        font-size: 15px; 
+        border-radius: 7px; 
+        -moz-border-radius: 7px; 
+        -webkit-border-radius: 7px; 
+        -o-border-radius: 7px; 
+        text-align: center;
+        margin-left: 42px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+.rodape{
+  width: 100%;
+ // margin-bottom: 50px;
+ p {
+    margin: 0 auto;
+    display: table;
+    color: #3e3e3e;
+    
+  }
+}
+ @media (max-width: 450px) { 
+    .conteudo{
+        .anucio{
+          max-width: 346px;
+        }
+    }
+
+ }
